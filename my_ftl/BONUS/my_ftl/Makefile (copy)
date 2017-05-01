@@ -1,0 +1,19 @@
+CPP = gcc
+LDFLAGS = `sdl-config --cflags --libs` -lSDL
+EXEC = ftl
+
+
+SRC = 		my_ftl.c
+
+OBJ =		$(SRC:%.c=%.o) 
+
+${EXEC}: 	$(OBJ)
+		${CPP} -g $(LDFLAGS) $(OBJ) -o $(EXEC) $(LDFLAGS)
+
+all: 		${EXEC}
+
+clean:
+		rm -fr *.o
+
+mrproper: 	clean
+		rm -fr ${EXEC}
